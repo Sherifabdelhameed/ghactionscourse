@@ -16,3 +16,5 @@ jobs:
     steps:
       - name: deploy application
         run: echo 'Deploying Application'
+      - name: Printing Enviroument Variable
+        run: echo ${{ inputs.enviroument }}
