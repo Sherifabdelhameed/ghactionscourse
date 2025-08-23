@@ -1,0 +1,24 @@
+name: Jobs tutorial
+on:
+  workflow_dispatch:
+
+jobs:
+  first-task:
+    runs-on: ubuntu-latest
+    steps:
+      - name: task 1
+        run: echo "Job ${{ github.job }}"
+
+  second-task:
+    needs: first-task
+    runs-on: ubuntu-latest
+    steps:
+      - name: task 2
+        run: echo "Job ${{ github.job }}"
+
+  third-task:
+    needs: [first-task, second-task]
+    runs-on: ubuntu-latest
+    steps:
+      - name: task 3
+        run: echo "Job ${{ github.job }}"
